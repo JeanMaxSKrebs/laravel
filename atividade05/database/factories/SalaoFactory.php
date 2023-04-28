@@ -13,7 +13,6 @@ class SalaoFactory extends Factory
      */
     public function definition()
     {
-        $faker = Faker::create();
         return [
             'nome' =>  $this->fake->company(),
             'cnpj' =>  $this->fake->numerify('##.###.###/####-##'),
