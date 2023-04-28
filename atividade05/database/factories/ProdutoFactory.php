@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProdutoFactory extends Factory
@@ -13,12 +14,13 @@ class ProdutoFactory extends Factory
      */
     public function definition()
     {
+        $faker = Faker::create();
         return [
-            "nome" => fake()->text(30),
-            "descricao" => fake()->sentence(10),
-            "preco" => fake()->randomFloat(2, 100, 10000),
-            "qtd_estoque" => fake()->randomNumber(3, false),
-            "importado" => fake()->numberBetween(0, 1)
+            "nome" => $faker->text(30),
+            "descricao" => $faker->sentence(10),
+            "preco" => $faker->randomFloat(2, 100, 10000),
+            "qtd_estoque" => $faker->randomNumber(3, false),
+            "importado" => $faker->numberBetween(0, 1)
         ];
     }
 }

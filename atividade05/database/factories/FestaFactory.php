@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FestaFactory extends Factory
@@ -13,11 +14,12 @@ class FestaFactory extends Factory
      */
     public function definition()
     {
+        $faker = Faker::create();
         return [
-            'nome' => fake()->text(30),
-            'duracao' => fake()->time($format = 'H:i', $max = 'now'),
-            'num_convidados' => fake()->numberBetween($min = 10, $max = 100),
-            'reserva_id' => fake()->randomNumber(),
+            'nome' => $faker->text(30),
+            'duracao' => $faker->time($format = 'H:i', $max = 'now'),
+            'num_convidados' => $faker->numberBetween($min = 10, $max = 100),
+            'reserva_id' => $faker->randomNumber(),
         ];
     }
 }

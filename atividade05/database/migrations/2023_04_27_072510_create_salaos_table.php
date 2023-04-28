@@ -15,11 +15,15 @@ class CreateSalaosTable extends Migration
     {
         Schema::create('saloes', function (Blueprint $table) {
             $table->id();
-            $table->text('nome');
+            $table->string('nome');
+            $table->integer('cnpj');
+            $table->string('endereco');
+            $table->string('cidade');
             $table->text('descricao');
             $table->integer('capacidade');
-            $table->text('localizacao');
-            $table->integer('cnpj');
+            $table->json('imagens');
+            $table->string('logo');
+            $table->text('mensagens');
             $table->timestamps();
         });
     }
