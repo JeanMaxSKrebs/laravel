@@ -13,20 +13,21 @@ class SalaoFactory extends Factory
      */
     public function definition()
     {
+        $faker = Faker::create();
         return [
-            'nome' => fake()->company(),
-            'cnpj' => fake()->numerify('##.###.###/####-##'),
-            'endereco' => fake()->address(),
-            'cidade' => fake()->city(),
-            'descricao' => fake()->text(),
-            'capacidade' => fake()->numberBetween($min = 50, $max = 500),
+            'nome' =>  $this->fake->company(),
+            'cnpj' =>  $this->fake->numerify('##.###.###/####-##'),
+            'endereco' =>  $this->fake->address(),
+            'cidade' =>  $this->fake->city(),
+            'descricao' =>  $this->fake->text(),
+            'capacidade' =>  $this->fake->numberBetween($min = 50, $max = 500),
             'imagens' => [
-                fake()->imageUrl($width = 640, $height = 480),
-                fake()->imageUrl($width = 640, $height = 480),
-                fake()->imageUrl($width = 640, $height = 480)
+                 $this->fake->imageUrl($width = 640, $height = 480),
+                 $this->fake->imageUrl($width = 640, $height = 480),
+                 $this->fake->imageUrl($width = 640, $height = 480)
             ],
-            'logo' => fake()->imageUrl($width = 200, $height = 200),
-            'mensagens' => fake()->paragraphs($nb = 3, $asText = true)
+            'logo' =>  $this->fake->imageUrl($width = 200, $height = 200),
+            'mensagens' =>  $this->fake->paragraphs($nb = 3, $asText = true)
         ];
         
     }

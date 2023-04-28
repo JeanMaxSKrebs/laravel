@@ -26,7 +26,9 @@ class EstadoSeeder extends Seeder
             }
 
             $jsonUrl = 'https://raw.githubusercontent.com/chandez/Estados-Cidades-IBGE/master/json/estados.json';
+            print_r($jsonUrl);
             $response = Http::get($jsonUrl);
+            print_r($response);
             $estados = $response->json()['data'];
 
             if (!$estados)

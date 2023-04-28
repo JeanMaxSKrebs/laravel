@@ -12,13 +12,13 @@ class Salao extends Model
 
     protected $fillable = [
         'nome',
-        'cnpj',
-        'endereco',
-        'cidade',
         'descricao',
         'capacidade',
-        'imagens',
+        'cidade',
+        'endereco',
+        'cnpj',
         'logo',
+        'imagens',
         'mensagens'
     ];
     

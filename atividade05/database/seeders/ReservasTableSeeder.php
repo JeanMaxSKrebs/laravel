@@ -1,11 +1,13 @@
 <?php
 
 namespace Database\Seeders;
+use DateTime;
 
-use Illuminate\Database\Seeder;
 use App\Models\Reserva;
-use App\Models\Festa;
+use App\Models\Salao;
 use App\Models\Cliente;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Log;
 
 class ReservasTableSeeder extends Seeder
 {
@@ -16,51 +18,51 @@ class ReservasTableSeeder extends Seeder
      */
     public function run()
     {
-        // Criação das Festas
-        $festa1 = Festa::create([
-            'nome' => 'Festa de Aniversário',
-            'data' => '2023-05-15',
-            'horario' => '19:00:00',
-            'descricao' => 'Festa de aniversário de 18 anos'
-        ]);
+        try {
+            if (Reserva::all()->count()) {
+                Log::channel('stderr')->info("O banco já possui reservas cadastradas!");
+                print_r(Reserva::all()->pluck('id_salao', 'id_cliente'));
+                return;
+            }
+            // Seleciona todos os salões e clientes
+            $saloes = Salao::all();
+            $clientes = Cliente::all();
 
-        $festa2 = Festa::create([
-            'nome' => 'Festa de Casamento',
-            'data' => '2023-06-25',
-            'horario' => '20:00:00',
-            'descricao' => 'Festa de casamento de João e Maria'
-        ]);
+            // Cria 50 reservas aleatórias
+            for ($i = 0; $i < 50; $i++) {
+                $salao = $saloes->random();
+                $cliente = $clientes->random();
+                $data_hora = $this->geraDataHoraAleatoria();
+                $valor = mt_rand(50, 500);
 
-        // Criação dos Clientes
-        $cliente1 = Cliente::create([
-            'nome' => 'João',
-            'email' => 'joao@gmail.com',
-            'telefone' => '(11) 99999-9999',
-            'endereco' => 'Rua 1, 123'
-        ]);
+                Reserva::create([
+                    'data_hora' => $data_hora,
+                    'valor' => $valor,
+                    'id_salao' => $salao->id,
+                    'id_cliente' => $cliente->id,
+                ]);
+            }
 
-        $cliente2 = Cliente::create([
-            'nome' => 'Maria',
-            'email' => 'maria@gmail.com',
-            'telefone' => '(11) 88888-8888',
-            'endereco' => 'Rua 2, 456'
-        ]);
+            Log::channel('stderr')->info("reservas inseridas com sucesso!");
+            print_r(Reserva::all()->pluck('id_salao', 'id_cliente'));
+        } catch (\Exception $error) {
+            throw new \Exception("Erro ao processar o seed de salaos!\n {$error->getMessage()}");
+        }
+    }
 
-        // Criação das Reservas
-        Reserva::create([
-            'festa_id' => $festa1->id,
-            'cliente_id' => $cliente1->id,
-            'data_reserva' => '2023-04-28',
-            'valor' => 1500.00
-        ]);
+    private function geraDataHoraAleatoria()
+    {
+        // Gera uma data aleatória dentro dos próximos 6 meses
+        $data = new DateTime();
+        $data->modify('+' . mt_rand(0, 180) . ' days');
+        $data_hora = $data->format('Y-m-d ');
 
-        Reserva::create([
-            'festa_id' => $festa2->id,
-            'cliente_id' => $cliente2->id,
-            'data_reserva' => '2023-04-29',
-            'valor' => 2500.00
-        ]);
+        // Gera uma hora aleatória entre 9:00 e 20:00
+        $hora = mt_rand(9, 20);
+        $minuto = mt_rand(0, 59);
+        $segundo = mt_rand(0, 59);
+        $data_hora .= sprintf('%02d:%02d:%02d', $hora, $minuto, $segundo);
 
-        // Adicione quantas Reservas desejar
+        return $data_hora;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,8 +26,17 @@ class DatabaseSeeder extends Seeder
 
         (new EstadoSeeder)->run();
 
-        \App\Models\Fornecedor::factory(fake()->randomNumber(2))
-                ->hasProdutos(fake()->randomNumber(1))
+
+        (new SaloesTableSeeder)->run();
+        (new ClientesTableSeeder)->run();
+        (new ReservasTableSeeder)->run();
+        // (new FestasTableSeeder)->run();
+        // (new PagamentosTableSeeder)->run();
+
+        $faker = Faker::create();
+
+        \App\Models\Fornecedor::factory($faker->randomNumber(2))
+                ->hasProdutos($faker->randomNumber(1))
                 ->create();
 
     }
