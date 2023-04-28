@@ -13,7 +13,7 @@ class CreateSalaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('salaos', function (Blueprint $table) {
+        Schema::create('saloes', function (Blueprint $table) {
             $table->id();
             $table->text('nome');
             $table->text('descricao');

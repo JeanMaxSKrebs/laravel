@@ -14,18 +14,4 @@ class Estado extends Model
     public function regiao(){
         return $this->belongsTo(Regiao::class);
     }
-
-    public function up()
-    {
-        Schema::create('estados', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('regiao_id')
-                ->references('id')->on('regioes')
-                ->cascadeOnDelete();
-            $table->integer('codigouf');
-            $table->string('nome', 50);
-            $table->char('uf', 2);
-            $table->timestamps();
-        });
-    }
 }

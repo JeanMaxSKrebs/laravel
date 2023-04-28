@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Salao extends Model
 {
     use HasFactory;
+    protected $table = 'saloes';
+
     protected $fillable = [
         'nome',
         'cnpj',
@@ -19,6 +21,7 @@ class Salao extends Model
         'logo',
         'mensagens'
     ];
+    
     public function reservas()
 {
     return $this->hasMany(Reserva::class);

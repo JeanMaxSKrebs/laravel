@@ -16,14 +16,16 @@ class Fornecedor extends Model
         "email",
         "estado_id",
         "telefone",
-        "endereco",
+        "endereco"
     ];
 
-    public function estado(){
+    public function estado()
+    {
         return $this->belongsTo(Estado::class);
     }
 
-    public function produtos(){
+    public function produtos()
+    {
         return $this->hasMany(Produto::class);
     }
 }

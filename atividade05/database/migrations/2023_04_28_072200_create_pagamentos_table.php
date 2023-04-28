@@ -15,7 +15,14 @@ class CreatePagamentosTable extends Migration
     {
         Schema::create('pagamentos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('cliente_id');
+            $table->unsignedBigInteger('reserva_id');
+            $table->decimal('valor_total', 10, 2);
+            $table->date('data_pagamento');
+            $table->date('data_vencimento');
             $table->timestamps();
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('reserva_id')->references('id')->on('reservas');
         });
     }
 
