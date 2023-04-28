@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Festa extends Model
+class Pagamento extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nome',
-        'duracao',
-        'num_convidados',
+        'cliente_id',
         'reserva_id',
+        'valor_total',
+        'data_pagamento',
+        'data_vencimento',
     ];
     public function reserva()
-{
-    return $this->belongsTo(Reserva::class);
-}
+    {
+        return $this->belongsTo(Reserva::class);
+    }
 
 }

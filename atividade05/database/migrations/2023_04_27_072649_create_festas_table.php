@@ -15,9 +15,9 @@ class CreateFestasTable extends Migration
     {
         Schema::create('festas', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_salao')->unsigned();
+            $table->bigInteger('id_salao')->unsigned();
             $table->foreign('id_salao')->references('id')->on('salaos');
-            $table->integer('id_cliente')->unsigned();
+            $table->bigInteger('id_cliente')->unsigned();
             $table->foreign('id_cliente')->references('id')->on('clientes');
             $table->text('nome');
             $table->date('data');

@@ -11,8 +11,17 @@ class Salao extends Model
     protected $fillable = [
         'nome',
         'cnpj',
-        'localizacao',
+        'endereco',
+        'cidade',
         'descricao',
         'capacidade',
+        'imagens',
+        'logo',
+        'mensagens'
     ];
+    public function reservas()
+{
+    return $this->hasMany(Reserva::class);
+}
+
 }

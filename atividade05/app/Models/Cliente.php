@@ -11,7 +11,15 @@ class Cliente extends Model
     protected $fillable = [
         'nome',
         'cpf',
-        'localizacao',
         'idade',
-    ];
+        'email',
+        'telefone',
+        'mensagens',
+        'foto_perfil',
+    ];    
+    public function reservas()
+{
+    return $this->hasMany(Reserva::class);
+}
+
 }
