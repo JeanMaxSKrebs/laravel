@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Festa extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nome',
+        'data',
+        'id_salao',
+        'id_cliente',
+    ];
 }

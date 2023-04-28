@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Abr-2023 às 10:15
+-- Tempo de geração: 28-Abr-2023 às 05:31
 -- Versão do servidor: 8.0.22
 -- versão do PHP: 7.4.12
 
@@ -36,6 +36,16 @@ CREATE TABLE `clientes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nome`, `cpf`, `localizacao`, `idade`, `created_at`, `updated_at`) VALUES
+(1, 'sadasada', 1212, 'dada', 18, NULL, NULL),
+(2, 'joao', 2020, 'pelotas', 20, NULL, NULL),
+(3, 'ana', 1010, 'pelotas', 25, NULL, NULL),
+(4, 'pedro', 45066, 'Pelotas', 20, '2023-04-27 12:30:24', '2023-04-27 12:30:24');
 
 -- --------------------------------------------------------
 
@@ -75,7 +85,8 @@ CREATE TABLE `festas` (
 
 INSERT INTO `festas` (`id`, `id_salao`, `id_cliente`, `nome`, `data`, `created_at`, `updated_at`) VALUES
 (1, 1, 2, 'festa de aniversario do rafael', '2023-04-28', NULL, NULL),
-(2, 2, 3, 'festa de aniversario da ana', '2023-04-30', NULL, NULL);
+(2, 2, 3, 'festa de aniversario da ana', '2023-04-30', NULL, NULL),
+(3, 2, 3, 'aaaaaaa', '2024-03-01', '2023-04-27 12:34:28', '2023-04-27 12:34:28');
 
 -- --------------------------------------------------------
 
@@ -149,6 +160,23 @@ CREATE TABLE `produtos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome`, `descricao`, `qtd_estoque`, `preco`, `importado`, `created_at`, `updated_at`) VALUES
+(111, 'Samsumg A5 - 2017', 'Samsumg A5 2017 2GB Exynos 8Core', 2, 4500.00, 0, NULL, NULL),
+(112, 'Notebook DELL Inspiron 15', 'I5 7600HQ 8GBMen GTX1030m SSD 1TB', 300, 8500.00, 0, NULL, NULL),
+(113, 'Notebook Samsumg Gamer', 'I7 10800HQ 16GB MEM NVIDIA-RTX2060m SSD 2TB', 150, 17500.00, 0, NULL, NULL),
+(114, 'SSD 4TB', 'SSD SAMSUMG EVO 860 4TB', 200, 5750.00, 0, NULL, NULL),
+(115, 'SSD 2TB', 'SSD SAMSUMG EVO 860 2TB', 150, 3750.00, 0, NULL, NULL),
+(121, 'SSD 4TB', 'SSD WESTERN DIGITAL', 50, 4150.00, 0, NULL, NULL),
+(122, 'GAINWARD PHOENIX RTX3080ti', 'GPU NVIDIA 12GB MEM GDDR6 256BITS GAINWARD PHOENIX ', 30, 14150.00, 0, NULL, NULL),
+(123, 'GAINWARD PHOENIX RTX3070', 'GPU NVIDIA 8GB MEM GDDR6 256BITS GAINWARD PHOENIX ', 60, 7399.00, 0, NULL, NULL),
+(124, 'ECHO DOT ALEXA', 'AMAZON ALEX ECHO DOT 3 GEN SMART SPEAKER', 1000, 200.00, 0, NULL, NULL),
+(125, 'Monitor Asus BK 35\'\'', 'LED 35\" 3440x1440 Preto 1 HDMI(v1.4)', 500, 9990.00, 0, NULL, NULL),
+(126, 'a', 'a', 1, 12.00, 1, '2023-04-27 12:24:05', '2023-04-27 12:24:05');
+
 -- --------------------------------------------------------
 
 --
@@ -165,6 +193,16 @@ CREATE TABLE `salaos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `salaos`
+--
+
+INSERT INTO `salaos` (`id`, `nome`, `descricao`, `capacidade`, `localizacao`, `cnpj`, `created_at`, `updated_at`) VALUES
+(1, 'b', 'b', 111, 'pelotas', 103010, NULL, '2023-04-28 05:45:40'),
+(2, 'house fest', 'todas', 150, 'sao leopoldo', 92580, NULL, NULL),
+(3, 'asdadafsa', 'aniversário', 80, 'sao leopoldo', 92500, NULL, NULL),
+(4, 'aaaaaaaaaaa', 'aaaaaaa', 133, 'Pelotas', 851030, '2023-04-27 12:28:14', '2023-04-27 12:28:14');
 
 -- --------------------------------------------------------
 
@@ -253,7 +291,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `failed_jobs`
@@ -265,7 +303,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `festas`
 --
 ALTER TABLE `festas`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `migrations`
@@ -283,13 +321,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT de tabela `salaos`
 --
 ALTER TABLE `salaos`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `users`

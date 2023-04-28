@@ -32,4 +32,37 @@ class ProdutoController extends Controller
             "produto" => $this->produto->find($id)
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $newProduto = $request->all();
+        $newProduto['importado'] = $request->has('importado');
+        if (!Produto::create($newProduto)) {
+            dd("Error ao criar produto!!");
+        }
+        return redirect('/produtos');
+    }
+
+    public function create()
+    {
+        return view('produtos.create');
+    }
+
+    public function edit($id)
+    {
+        return view('produtos.edit',[
+            'produto'=>Produto::find($id)
+        ]);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $newProduto = $request->all();
+        $newProduto['importado'] = $request->has('importado');
+        if (!Produto::find($id)->update($newProduto)) {
+            dd("Error ao criar produto!!");
+        }
+        return redirect('/produtos');
+    }
+
 }

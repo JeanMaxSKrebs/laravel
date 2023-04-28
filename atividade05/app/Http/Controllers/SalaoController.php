@@ -31,4 +31,36 @@ class SalaoController extends Controller
         return view('salaos.show', [
             "salao" => $this->salao->find($id)
         ]);
-    }}
+    }
+    
+    public function store(Request $request)
+    {
+        $newSalao = $request->all();
+        if (!Salao::create($newSalao)) {
+            dd("Error ao criar salao!!");
+        }
+        return redirect('/salaos');
+    }
+
+    public function create()
+    {
+        return view('salaos.create');
+    }
+
+    public function edit($id)
+    {
+        return view('salaos.edit',[
+            'salao'=>Salao::find($id)
+        ]);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $newSalao = $request->all();
+        if (!Salao::find($id)->update($newSalao)) {
+            dd("Error ao criar salao!!");
+        }
+        return redirect('/salaos');
+    }
+
+}

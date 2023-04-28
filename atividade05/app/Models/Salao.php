@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Salao extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nome',
+        'cnpj',
+        'localizacao',
+        'descricao',
+        'capacidade',
+    ];
 }

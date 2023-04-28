@@ -32,4 +32,36 @@ class FestaController extends Controller
         return view('festas.show', [
             "festa" => $this->festa->find($id)
         ]);
-    }}
+    }
+    
+    public function store(Request $request)
+    {
+        $newFesta = $request->all();
+        if (!Festa::create($newFesta)) {
+            dd("Error ao criar festa!!");
+        }
+        return redirect('/festas');
+    }
+
+    public function create()
+    {
+        return view('festas.create');
+    }
+
+    public function edit($id)
+    {
+        return view('festas.edit',[
+            'festa'=>Festa::find($id)
+        ]);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $newFesta = $request->all();
+        if (!Festa::find($id)->update($newFesta)) {
+            dd("Error ao criar festa!!");
+        }
+        return redirect('/festas');
+    }
+
+}

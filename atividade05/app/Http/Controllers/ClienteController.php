@@ -33,4 +33,35 @@ class ClienteController extends Controller
             "cliente" => $this->cliente->find($id)
         ]);
     }
+    
+    public function store(Request $request)
+    {
+        $newCliente = $request->all();
+        if (!Cliente::create($newCliente)) {
+            dd("Error ao criar cliente!!");
+        }
+        return redirect('/clientes');
+    }
+
+    public function create()
+    {
+        return view('clientes.create');
+    }
+
+    public function edit($id)
+    {
+        return view('clientes.edit',[
+            'cliente'=>Cliente::find($id)
+        ]);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $newCliente = $request->all();
+        if (!Cliente::find($id)->update($newCliente)) {
+            dd("Error ao criar cliente!!");
+        }
+        return redirect('/clientes');
+    }
+
 }
