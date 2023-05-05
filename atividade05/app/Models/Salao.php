@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Salao extends Model
 {
@@ -22,9 +23,14 @@ class Salao extends Model
         'mensagens'
     ];
     
-    public function reservas()
-{
-    return $this->hasMany(Reserva::class);
-}
+    // public function reservas()
+    // {
+    //     return $this->hasMany(Reserva::class);
+    // }
+
+    public function clientes(): BelongsToMany
+    {
+        return $this->belongsToMany(Cliente::class)->using(Reserva::class);
+    }
 
 }
