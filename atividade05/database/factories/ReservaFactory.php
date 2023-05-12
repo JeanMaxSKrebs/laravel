@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReservaFactory extends Factory
@@ -14,10 +13,9 @@ class ReservaFactory extends Factory
      */
     public function definition()
     {
-        $faker = Faker::create();
         return [
-            'data_hora' => $faker->dateTimeBetween('-1 year', 'now'),
-            'valor' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1000),
+            'data_hora' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'valor' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1000),
             // 'id_salao' => $faker->numberBetween($min = 1, $max = 100),
             // 'id_cliente' => $faker->numberBetween($min = 1, $max = 100),
         ];        

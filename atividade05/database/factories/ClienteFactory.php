@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ClienteFactory extends Factory
@@ -14,15 +13,14 @@ class ClienteFactory extends Factory
      */
     public function definition()
     {
-        $faker = Faker::create();
         return [
-            'nome' => $faker->text(30),
-            'cpf' => $faker->randomNumber(11, false),
-            'idade' => $faker->numberBetween(18, 60),
-            'email' => $faker->email(),
-            'telefone' => $faker->phoneNumber(),
-            'mensagens' => $faker->paragraphs($nb = 3, $asText = true),
-            'foto_perfil' => $faker->imageUrl($width = 640, $height = 480),
+            'nome' => $this->faker->text(30),
+            'cpf' => $this->faker->randomNumber(11, false),
+            'idade' => $this->faker->numberBetween(18, 60),
+            'email' => $this->faker->email(),
+            'telefone' => $this->faker->phoneNumber(),
+            'mensagens' => $this->faker->paragraphs($nb = 3, $asText = true),
+            'foto_perfil' => $this->faker->imageUrl($width = 640, $height = 480),
         ];
     }
 }

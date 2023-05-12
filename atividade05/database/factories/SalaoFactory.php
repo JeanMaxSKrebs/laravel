@@ -14,19 +14,19 @@ class SalaoFactory extends Factory
     public function definition()
     {
         return [
-            'nome' =>  $this->fake->company(),
-            'cnpj' =>  $this->fake->numerify('##.###.###/####-##'),
-            'endereco' =>  $this->fake->address(),
-            'cidade' =>  $this->fake->city(),
-            'descricao' =>  $this->fake->text(),
-            'capacidade' =>  $this->fake->numberBetween($min = 50, $max = 500),
+            'nome' =>  $this->faker->company(),
+            'cnpj' =>  $this->faker->numerify('##.###.###/####-##'),
+            'endereco' =>  $this->faker->address(),
+            'cidade' =>  $this->faker->city(),
+            'descricao' =>  $this->faker->text(),
+            'capacidade' =>  $this->faker->numberBetween($min = 50, $max = 500),
             'imagens' => [
-                 $this->fake->imageUrl($width = 640, $height = 480),
-                 $this->fake->imageUrl($width = 640, $height = 480),
-                 $this->fake->imageUrl($width = 640, $height = 480)
+                 $this->faker->imageUrl($width = 640, $height = 480),
+                 $this->faker->imageUrl($width = 640, $height = 480),
+                 $this->faker->imageUrl($width = 640, $height = 480)
             ],
-            'logo' =>  $this->fake->imageUrl($width = 200, $height = 200),
-            'mensagens' =>  $this->fake->paragraphs($nb = 3, $asText = true)
+            'logo' =>  $this->faker->imageUrl($width = 200, $height = 200),
+            'mensagens' =>  $this->faker->paragraphs($nb = 3, $asText = true)
         ];
         
     }

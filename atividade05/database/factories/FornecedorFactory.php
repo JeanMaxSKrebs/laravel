@@ -2,9 +2,7 @@
 
 namespace Database\Factories;
 
-use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Provider\pt_BR\Company;
 
 
 class FornecedorFactory extends Factory
@@ -16,8 +14,6 @@ class FornecedorFactory extends Factory
      */
     public function definition()
     {
-        $this->faker = Faker::create();
-        $this->faker->addProvider(new Company($this->faker));
         return [
             "nome" => $this->faker->company(),
             "cnpj" =>  $this->faker->cnpj,

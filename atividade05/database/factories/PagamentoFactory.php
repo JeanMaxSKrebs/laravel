@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PagamentoFactory extends Factory
@@ -14,13 +13,12 @@ class PagamentoFactory extends Factory
      */
     public function definition()
     {
-        $faker = Faker::create();
         return [
-            'cliente_id' => $faker->randomNumber(),
-            'reserva_id' => $faker->randomNumber(),
-            'valor_total' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1000),
-            'data_pagamento' => $faker->date($format = 'Y-m-d', $max = 'now'),
-            'data_vencimento' => $faker->date($format = 'Y-m-d', $max = '+1 year'),
+            'cliente_id' => $this->faker->randomNumber(),
+            'reserva_id' => $this->faker->randomNumber(),
+            'valor_total' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1000),
+            'data_pagamento' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
+            'data_vencimento' => $this->faker->date($format = 'Y-m-d', $max = '+1 year'),
         ];        
     }
 }
