@@ -18,8 +18,7 @@ class CreateFestasTable extends Migration
             $table->string('nome');
             $table->timestamp('duracao');
             $table->integer('num_convidados');
-            $table->unsignedBigInteger('reserva_id');
-            $table->foreign('reserva_id')->references('id')->on('reservas');
+            $table->unsignedBigInteger('contrato_id');
             $table->timestamps();
         });
     }

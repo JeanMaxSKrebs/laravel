@@ -17,7 +17,7 @@ class FestaFactory extends Factory
             'nome' => $this->faker->text(30),
             'duracao' => $this->faker->time($format = 'H:i', $max = 'now'),
             'num_convidados' => $this->faker->numberBetween($min = 10, $max = 100),
-            'reserva_id' => $this->faker->randomNumber(),
+            // 'contrato_id' => $this->faker->randomNumber(),
         ];
     }
 }

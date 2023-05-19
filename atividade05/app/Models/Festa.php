@@ -12,11 +12,14 @@ class Festa extends Model
         'nome',
         'duracao',
         'num_convidados',
-        'reserva_id',
+        'contrato_id',
     ];
     public function reserva()
-{
-    return $this->belongsTo(Reserva::class);
-}
-
+    {
+        return $this->belongsTo(Reserva::class);
+    }
+    public function contrato()
+    {
+        return $this->belongsTo(Festa::class);
+    }
 }

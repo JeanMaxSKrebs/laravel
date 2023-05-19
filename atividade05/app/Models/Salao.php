@@ -33,4 +33,9 @@ class Salao extends Model
         return $this->belongsToMany(Cliente::class)->using(Reserva::class);
     }
 
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+
 }

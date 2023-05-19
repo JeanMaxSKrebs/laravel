@@ -16,24 +16,19 @@ class FestasTableSeeder extends Seeder
     {
         DB::table('festas')->insert([
             [
-                'cliente_id' => 1,
-                'salao_id' => 1,
-                'tema' => 'Festa de Aniversário',
+                'contrato_id' => 1,
+                'nome' => 'Festa de Aniversário',
                 'data' => '2023-07-01',
-                'hora_inicio' => '18:00',
-                'hora_fim' => '22:00',
+                'duracao' => '4:00',
                 'quantidade_convidados' => 50,
             ],
             [
-                'cliente_id' => 2,
-                'salao_id' => 2,
-                'tema' => 'Festa de Casamento',
+                'contrato_id' => 2,
+                'nome' => 'Festa de Casamento',
                 'data' => '2023-08-01',
-                'hora_inicio' => '20:00',
-                'hora_fim' => '02:00',
+                'duracao' => '5:00',
                 'quantidade_convidados' => 100,
             ],
-            // Adicione quantas festas desejar
         ]);
     }
 }

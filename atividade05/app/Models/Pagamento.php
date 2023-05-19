@@ -20,4 +20,9 @@ class Pagamento extends Model
         return $this->belongsTo(Reserva::class);
     }
 
+    public function contrato()
+    {
+        return $this->hasOne(Contrato::class);
+    }
+
 }

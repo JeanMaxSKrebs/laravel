@@ -29,9 +29,4 @@ class Reserva extends Pivot
         return $this->hasOne(Pagamento::class);
     }
 
-    public function festa()
-    {
-        return $this->hasOne(Festa::class);
-    }
-
 }
