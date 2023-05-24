@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Cliente extends Model
 {
     use HasFactory;
+
+    protected $table = 'clientes';
+
     protected $fillable = [
         'nome',
         'cpf',
@@ -24,7 +27,7 @@ class Cliente extends Model
     }
     public function saloes(): BelongsToMany
     {
-        return $this->belongsToMany(Salao::class,'reservas','id_cliente','id_salao')->using(Reserva::class);
+        return $this->belongsToMany(Salao::class,'reservas','cliente_id','salao_id')->using(Reserva::class);
     }
 
 }

@@ -16,8 +16,8 @@ class ReservaFactory extends Factory
         return [
             'data_hora' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'valor' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1000),
-            // 'id_salao' => $faker->numberBetween($min = 1, $max = 100),
-            // 'id_cliente' => $faker->numberBetween($min = 1, $max = 100),
+            // 'salao_id' => $faker->numberBetween($min = 1, $max = 100),
+            // 'cliente_id' => $faker->numberBetween($min = 1, $max = 100),
         ];        
     }
 }

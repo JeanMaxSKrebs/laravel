@@ -6,31 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePagamentosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('pagamentos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cliente_id');
+            $table->string('tipo');
             $table->unsignedBigInteger('reserva_id');
-            $table->decimal('valor_total', 10, 2);
-            $table->date('data_pagamento');
             $table->date('data_vencimento');
+            $table->date('data_pagamento');
+            $table->decimal('valor_total', 10, 2);
+            $table->decimal('valor_calcao', 10, 2);
+            $table->integer('desconto');
+            $table->string('tipo_desconto');
             $table->timestamps();
-            $table->foreign('cliente_id')->references('id')->on('clientes');
-            $table->foreign('reserva_id')->references('id')->on('reservas');
+
+            $table->foreign('reserva_id')->references('id')->on('reservas')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('pagamentos');

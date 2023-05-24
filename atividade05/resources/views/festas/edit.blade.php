@@ -23,11 +23,11 @@
             </tr>
             <tr>
                 <td>ID Salão:</td>
-                <td><input type="number" name="id_salao" value="{{$festa->id_salao}}"/></td>
+                <td><input type="number" name="salao_id" value="{{$festa->salao_id}}"/></td>
             </tr>
             <tr>
                 <td>ID Cliente:</td>
-                <td><input type="number" name="id_cliente" value="{{$festa->id_cliente}}"/></td>
+                <td><input type="number" name="cliente_id" value="{{$festa->cliente_id}}"/></td>
             </tr>
             <tr align="center">
                 <td colspan="2">

@@ -8,17 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Festa extends Model
 {
     use HasFactory;
+
+    protected $table = 'festas';
+
+
     protected $fillable = [
         'nome',
         'duracao',
         'num_convidados',
         'contrato_id',
     ];
-    public function reserva()
+    public function reservas()
     {
         return $this->belongsTo(Reserva::class);
     }
-    public function contrato()
+    public function contratos()
     {
         return $this->belongsTo(Festa::class);
     }

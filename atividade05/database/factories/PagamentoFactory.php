@@ -1,24 +1,32 @@
 <?php
 
-namespace Database\Factories;
-
+use App\Models\Pagamento;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PagamentoFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+    protected $model = Pagamento::class;
+
     public function definition()
     {
+        $valor = $this->faker->randomFloat(2, 500, 2000);
+        $desconto = $this->faker->randomElement([5, 10, 15, 20]);
+        $valorTotalcomDesconto = $valor - ($desconto / 100) * $valor;
+        $valorCalcao = $valorTotalcomDesconto / 10;
+
         return [
-            'cliente_id' => $this->faker->randomNumber(),
-            'reserva_id' => $this->faker->randomNumber(),
-            'valor_total' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1000),
-            'data_pagamento' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
-            'data_vencimento' => $this->faker->date($format = 'Y-m-d', $max = '+1 year'),
-        ];        
+            'tipo' => $this->faker->word,
+            'reserva_id' => function () {
+                return factory(App\Models\Reserva::class)->create()->id;
+            },
+            'data_vencimento' => now()->addDays($this->faker->numberBetween(1, 30)),
+            'data_pagamento' => now()->subDays($this->faker->numberBetween(1, 30)),
+            'valor_total' => $valorTotalcomDesconto,
+            'valor_calcao' => $valorCalcao,
+            'desconto' => $desconto,
+            'tipo_desconto' => $this->faker->word,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
     }
 }

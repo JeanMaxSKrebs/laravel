@@ -24,11 +24,11 @@
             </tr>
             <tr>
                 <td>ID Salão:</td>
-                <td><input type="number" name="id_salao"/></td>
+                <td><input type="number" name="salao_id"/></td>
             </tr>
             <tr>
                 <td>ID Cliente:</td>
-                <td><input type="number" name="id_cliente"/></td>
+                <td><input type="number" name="cliente_id"/></td>
             </tr>
             <tr align="center">
                 <td colspan="2"><input type="submit" value="Criar"/></td>

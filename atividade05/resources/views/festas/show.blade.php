@@ -15,7 +15,7 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>ID_Salão</th>
-                <th>ID_Cliente</th>
+                <th>cliente_id</th>
                 <th>Data</th>
             </tr>
         </thead>
@@ -24,7 +24,7 @@
                 <td>{{$festa->id}}</td>
                 <td>{{$festa->nome}}</td>
                 <td>{{$festa->id_festa}}</td>
-                <td>{{$festa->id_cliente}}</td>
+                <td>{{$festa->cliente_id}}</td>
                 <td>{{$festa->data}}</td>
             </tr>
         </tbody>

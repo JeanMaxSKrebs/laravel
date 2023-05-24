@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Log;
 
+
 class ClientesTableSeeder extends Seeder
 {
     /**
@@ -16,47 +17,25 @@ class ClientesTableSeeder extends Seeder
     public function run()
     {
         try {
-            if (Cliente::all()->count()) {
+            $clienteCount = 20; // Defina o número de clientes desejado
+
+            if (Cliente::count() >= $clienteCount) {
                 Log::channel('stderr')->info("O banco já possui clientes cadastrados!");
                 print_r(Cliente::all()->pluck('id', 'email'));
                 return;
             }
-            $clientes = [
-                [
-                    'Cpf' => '11111111111',
-                    'Idade' => 30,
-                    'Email' => 'cliente1@example.com',
-                    'Telefone' => '(11) 1111-1111',
-                    'Mensagens' => json_encode(['lindo','bonito']),
-                    'Foto_perfil' => 'https://exemplo.com/foto1.jpg'
-                ],
-                [
-                    'Cpf' => '22222222222',
-                    'Idade' => 25,
-                    'Email' => 'cliente2@example.com',
-                    'Telefone' => '(22) 2222-2222',
-                    'Mensagens' => json_encode(['lindo','bonito']),
-                    'Foto_perfil' => 'https://exemplo.com/foto2.jpg'
-                ],
-                [
-                    'Cpf' => '33333333333',
-                    'Idade' => 40,
-                    'Email' => 'cliente3@example.com',
-                    'Telefone' => '(33) 3333-3333',
-                    'Mensagens' => json_encode(['lindo','bonito']),
-                    'Foto_perfil' => 'https://exemplo.com/foto3.jpg'
-                ]
-            ];
 
             $listclientes = [];
-            foreach ($clientes as $cliente) {
+
+            for ($i = 1; $i <= $clienteCount; $i++) {
                 $listclientes[] = [
-                    'cpf' => $cliente['Cpf'],
-                    'idade' => $cliente['Idade'],
-                    'email' => $cliente['Email'],
-                    'telefone' => $cliente['Telefone'],
-                    'mensagens' => $cliente['Mensagens'],
-                    'foto_perfil' => $cliente['Foto_perfil']
+                    'nome' => "Cliente {$i}",
+                    'cpf' => '1111111111' . $i,
+                    'idade' => 30 + $i,
+                    'email' => "cliente{$i}@example.com",
+                    'telefone' => "(11) 1111-111{$i}",
+                    'mensagens' => json_encode(['lindo', 'bonito']),
+                    'foto_perfil' => "https://exemplo.com/foto{$i}.jpg"
                 ];
             }
 

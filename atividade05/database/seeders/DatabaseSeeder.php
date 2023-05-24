@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         (new SaloesTableSeeder)->run();
         (new ClientesTableSeeder)->run();
         (new ReservasTableSeeder)->run();
+        (new PagamentosTableSeeder)->run();
         // (new FestasTableSeeder)->run();
         // (new PagamentosTableSeeder)->run();
 

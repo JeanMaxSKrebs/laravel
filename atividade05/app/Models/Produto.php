@@ -17,11 +17,11 @@ class Produto extends Model
         "importado"
     ];
 
-    public function fornecedor(){
+    public function fornecedors(){
         return $this->belongsTo(Fornecedor::class);
     }
 
-    public function regiao(){
+    public function regiaos(){
         return $this->belongsToThrough(
             Regiao::class,
             [

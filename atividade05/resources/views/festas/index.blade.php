@@ -15,7 +15,7 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>ID_Salão</th>
-                <th>ID_Cliente</th>
+                <th>cliente_id</th>
                 <th>Data</th>
             </tr>
         </thead>
@@ -28,8 +28,8 @@
                     </a>
                 </td>
                 <td>{{$festa->nome}}</td>
-                <td>{{$festa->id_salao}}</td>
-                <td>{{$festa->id_cliente}}</td>
+                <td>{{$festa->salao_id}}</td>
+                <td>{{$festa->cliente_id}}</td>
                 <td>{{$festa->data}}</td>
             </tr>
             @endforeach

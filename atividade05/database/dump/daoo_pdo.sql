@@ -71,8 +71,8 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `festas` (
   `id` bigint UNSIGNED NOT NULL,
-  `id_salao` int UNSIGNED NOT NULL,
-  `id_cliente` int UNSIGNED NOT NULL,
+  `salao_id` int UNSIGNED NOT NULL,
+  `cliente_id` int UNSIGNED NOT NULL,
   `nome` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `data` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `festas` (
 -- Extraindo dados da tabela `festas`
 --
 
-INSERT INTO `festas` (`id`, `id_salao`, `id_cliente`, `nome`, `data`, `created_at`, `updated_at`) VALUES
+INSERT INTO `festas` (`id`, `salao_id`, `cliente_id`, `nome`, `data`, `created_at`, `updated_at`) VALUES
 (1, 1, 2, 'festa de aniversario do rafael', '2023-04-28', NULL, NULL),
 (2, 2, 3, 'festa de aniversario da ana', '2023-04-30', NULL, NULL),
 (3, 2, 3, 'aaaaaaa', '2024-03-01', '2023-04-27 12:34:28', '2023-04-27 12:34:28');

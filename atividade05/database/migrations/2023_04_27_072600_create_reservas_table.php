@@ -17,10 +17,10 @@ class CreateReservasTable extends Migration
             $table->id();
             $table->dateTime('data_hora');
             $table->decimal('valor', 10, 2);
-            $table->unsignedBigInteger('id_salao');
-            $table->foreign('id_salao')->references('id')->on('saloes');
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id')->on('clientes');
+            $table->unsignedBigInteger('salao_id');
+            $table->foreign('salao_id')->references('id')->on('saloes');
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
         });
     }

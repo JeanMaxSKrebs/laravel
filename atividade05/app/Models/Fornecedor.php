@@ -19,7 +19,7 @@ class Fornecedor extends Model
         "endereco"
     ];
 
-    public function estado()
+    public function estados()
     {
         return $this->belongsTo(Estado::class);
     }

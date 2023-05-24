@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contrato extends Model
 {
+    protected $table = 'contratos';
+
     protected $fillable = [
         'descricao',
         'data_inicio',
@@ -14,12 +16,12 @@ class Contrato extends Model
         'pagamento_id',
     ];
 
-    public function pagamento()
+    public function pagamentos()
     {
         return $this->belongsTo(Pagamento::class);
     }
 
-    public function festa()
+    public function festas()
     {
         return $this->belongsTo(Festa::class);
     }

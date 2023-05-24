@@ -8,23 +8,26 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class Reserva extends Pivot
 {
     use HasFactory;
+
+    protected $table = 'reservas';
+
     protected $fillable = [
         "data_hora",
         "valor",
-        "id_salao",
-        "id_cliente",
+        "salao_id",
+        "cliente_id",
     ];
-    public function cliente()
+    public function clientes()
     {
         return $this->belongsTo(Cliente::class);
     }
 
-    public function salao()
+    public function salaos()
     {
         return $this->belongsTo(Salao::class);
     }
 
-    public function pagamento()
+    public function pagamentos()
     {
         return $this->hasOne(Pagamento::class);
     }
