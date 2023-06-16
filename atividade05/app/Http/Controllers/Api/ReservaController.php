@@ -31,42 +31,57 @@ class ReservaController extends Controller
         }
     }
 
-    public function show(Reserva $reserva)
-    {
-        return response()->json($reserva);
-    }
-
-    public function update(Request $request, Reserva $reserva)
+    public function show($id)
     {
         try {
-            $updatedReserva = $request->all();
-            $reserva->update($updatedReserva);
-            return response()->json([
-                'Message'=>"Reserva atualizado com sucesso",
-                'Reserva'=>$reserva
-            ]);
+            $reserva = Reserva::findOrFail($id);
+            return response()->json($reserva);
         } catch(\Exception $error) {
             $responseError = [
-                'Message'=>"Erro ao atualizar o Reserva!",
-                'Exception'=>$error->getMessage()
+                'message' => "A Reserva de ID: $id não foi encontrado!",
+                'exception' => $error->getMessage()
+            ];
+            return response()->json($responseError, 404);
+        }
+    }    
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $newReserva = $request->all();
+            $updatedReserva = Reserva::findOrFail($id);
+            $updatedReserva->update($newReserva);
+            
+            return response()->json([
+                'Message' => "Reserva atualizada com sucesso",
+                'Reserva' => $updatedReserva
+            ]);
+        } catch (\Exception $error) {
+            $responseError = [
+                'Message' => "Erro ao atualizar a reserva",
+                'Exception' => $error->getMessage()
             ];
             return response()->json($responseError, 500);
         }
     }
 
-    public function remove(Reserva $reserva)
+    public function remove($id)
     {
         try {
-            $reserva->delete();//mixed
+            $reserva = Reserva::findOrFail($id);
+            $reserva->delete();
+            
             return response()->json([
-                'Message'=>"Reserva id:$reserva->id removido!",
+                'Message' => "Reserva removida com sucesso",
+                'Reserva' => $reserva
             ]);
-        } catch(\Exception $error) {
+        } catch (\Exception $error) {
             $responseError = [
-                'Message'=>"O reserva de id: $reserva->id não foi encontrado!",
-                'Exception'=>$error->getMessage()
+                'Message' => "A reserva de ID: $id não foi encontrada",
+                'Exception' => $error->getMessage()
             ];
             return response()->json($responseError, 404);
         }
     }
+
 }

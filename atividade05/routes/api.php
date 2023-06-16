@@ -29,11 +29,6 @@ Route::post('/salao', [SalaoController::class,'store']);
 Route::put('/salao/{id}', [SalaoController::class,'update']);
 Route::delete('/salao/{id}', [SalaoController::class,'remove']);
 
-// Route::apiResource('salaos',SalaoController::class)
-//     ->parameters([
-//         'salaos'=>'salao'
-//     ]);
-
 Route::get(
     'salaos/{salao}/reservas',
     [
@@ -64,11 +59,6 @@ Route::get('/cliente/{id}', [ClienteController::class, 'show']);
 Route::post('/cliente', [ClienteController::class,'store']);
 Route::put('/cliente/{id}', [ClienteController::class,'update']);
 Route::delete('/cliente/{id}', [ClienteController::class,'remove']);
-
-Route::apiResource('clientes',SalaoController::class)
-    ->parameters([
-        'clientes'=>'cliente'
-    ]);
 
 Route::get(
     'clientes/{salao}/reservas',

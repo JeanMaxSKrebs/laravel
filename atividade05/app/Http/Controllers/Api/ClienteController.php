@@ -31,48 +31,61 @@ class ClienteController extends Controller
         }
     }
 
-    public function show(Cliente $cliente)
-    {
-        return response()->json($cliente);
-    }
-
-    public function update(Request $request, Cliente $cliente)
+    public function show($id)
     {
         try {
-            $updatedCliente = $request->all();
-            $cliente->update($updatedCliente);
-            return response()->json([
-                'Message'=>"Cliente atualizado com sucesso",
-                'Cliente'=>$cliente
-            ]);
+            $cliente = Cliente::findOrFail($id);
+            return response()->json($cliente);
         } catch(\Exception $error) {
             $responseError = [
-                'Message'=>"Erro ao atualizar o Cliente!",
-                'Exception'=>$error->getMessage()
+                'message' => "A Cliente de ID: $id não foi encontrado!",
+                'exception' => $error->getMessage()
+            ];
+            return response()->json($responseError, 404);
+        }
+    }   
+
+    public function update(Request $request, $id)
+    {
+        try {
+            $newCliente = $request->all();
+            $updatedCliente = Cliente::findOrFail($id);
+            $updatedCliente->update($newCliente);
+            
+            return response()->json([
+                'Message' => "Cliente atualizada com sucesso",
+                'Cliente' => $updatedCliente
+            ]);
+        } catch (\Exception $error) {
+            $responseError = [
+                'Message' => "Erro ao atualizar a cliente",
+                'Exception' => $error->getMessage()
             ];
             return response()->json($responseError, 500);
         }
     }
 
-    public function remove(Cliente $cliente)
+    public function remove($id)
     {
         try {
-            $cliente->delete();//mixed
+            $cliente = Cliente::findOrFail($id);
+            $cliente->delete();
+            
             return response()->json([
-                'Message'=>"Cliente id:$cliente->id removido!",
+                'Message' => "Cliente removida com sucesso",
+                'Cliente' => $cliente
             ]);
-        } catch(\Exception $error) {
+        } catch (\Exception $error) {
             $responseError = [
-                'Message'=>"O cliente de id:$cliente->id não foi encontrado!",
-                'Exception'=>$error->getMessage()
+                'Message' => "A cliente de ID: $id não foi encontrada",
+                'Exception' => $error->getMessage()
             ];
             return response()->json($responseError, 404);
         }
     }
-
-    public function reservas(Cliente $cliente)
+    public function clientes(Cliente $cliente)
     {
-        return response()->json($cliente->load('reservas'));
+        return response()->json($cliente->load('clientes'));
     }
 
     public function salao($nomeSalao)
