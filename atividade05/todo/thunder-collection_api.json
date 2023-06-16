@@ -1,0 +1,113 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "api",
+    "dateExported": "2023-06-16T14:54:43.873Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "name": "saloes",
+            "containerId": "",
+            "created": "2023-06-16T13:30:36.177Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "ecd0b2a0-bc9a-4584-895a-3d838674f9b3",
+            "name": "reservas",
+            "containerId": "",
+            "created": "2023-06-16T13:30:45.386Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "85005500-1f5a-4324-b30e-3f6488ac7f4c",
+            "name": "clientes",
+            "containerId": "",
+            "created": "2023-06-16T13:30:49.819Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "34926472-08eb-48ef-8517-c88a142f31d1",
+            "colId": "058bfb4c-c634-4ca5-bb57-8a7d02c33a6e",
+            "containerId": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "name": "mostrar saloes",
+            "url": "localhost:8081/api/salaos/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-06-16T13:31:10.493Z",
+            "modified": "2023-06-16T13:31:29.102Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5824d6fe-584c-4a9c-8bff-1f52f10bc0a9",
+            "colId": "058bfb4c-c634-4ca5-bb57-8a7d02c33a6e",
+            "containerId": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "name": "mostrar salao especifico",
+            "url": "localhost:8081/api/salao/3",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-06-16T13:31:38.645Z",
+            "modified": "2023-06-16T14:01:59.827Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "23faf63a-d0be-445f-91d8-36b8cf6abb59",
+            "colId": "058bfb4c-c634-4ca5-bb57-8a7d02c33a6e",
+            "containerId": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "name": "inserir salao",
+            "url": "localhost:8081/api/salao/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-06-16T14:02:41.170Z",
+            "modified": "2023-06-16T14:04:49.516Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "salao"
+                    },
+                    {
+                        "name": "cnpj",
+                        "value": "1110001110"
+                    },
+                    {
+                        "name": "endereco",
+                        "value": "avenida campina 696"
+                    },
+                    {
+                        "name": "cidade",
+                        "value": "sao leopoldo"
+                    },
+                    {
+                        "name": "descricao",
+                        "value": "um salao de festa"
+                    },
+                    {
+                        "name": "capacidade",
+                        "value": "120"
+                    },
+                    {
+                        "name": "logo",
+                        "value": "",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "imagens",
+                        "value": "",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ]
+}

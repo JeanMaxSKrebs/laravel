@@ -12,6 +12,7 @@ class Salao extends Model
     protected $table = 'saloes';
 
     protected $fillable = [
+        'id',
         'nome',
         'descricao',
         'capacidade',

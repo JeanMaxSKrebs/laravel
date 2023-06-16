@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\ClienteController;
+use App\Http\Controllers\Api\ReservaController;
+use App\Http\Controllers\Api\SalaoController;
+use App\Http\Controllers\Api\FestaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,15 +35,17 @@ Route::apiResource('salaos',SalaoController::class)
     ]);
 
 Route::get(
-    'salaos/{salao}/festas',
+    'salaos/{salao}/reservas',
     [
         SalaoController::class,
-        'festas'
+        'reservas'
     ]
 );
+Route::get('salaos/{nomeCliente}', [SalaoController::class, 'cliente']);
+
 
 Route::get('salaos/cliente/{nomeCliente}',[
-    FornecedorController::class,
+    ClienteController::class,
     'cliente'
 ]);
 
@@ -49,9 +55,27 @@ Route::post('/festa', [FestaController::class,'store']);
 Route::put('/festa/{id}', [FestaController::class,'update']);
 Route::delete('/festa/{id}', [FestaController::class,'remove']);
 
+Route::get('/reservas', [ReservaController::class, 'index']);
+Route::get('/reserva/{id}', [ReservaController::class, 'show']);
+Route::post('/reserva', [ReservaController::class,'store']);
+Route::put('/reserva/{id}', [ReservaController::class,'update']);
+Route::delete('/reserva/{id}', [ReservaController::class,'remove']);
+
 Route::get('/clientes', [ClienteController::class, 'index']);
 Route::get('/cliente/{id}', [ClienteController::class, 'show']);
 Route::post('/cliente', [ClienteController::class,'store']);
 Route::put('/cliente/{id}', [ClienteController::class,'update']);
 Route::delete('/cliente/{id}', [ClienteController::class,'remove']);
 
+Route::apiResource('clientes',SalaoController::class)
+    ->parameters([
+        'clientes'=>'cliente'
+    ]);
+
+Route::get(
+    'clientes/{salao}/reservas',
+    [
+        SalaoController::class,
+        'reservas'
+    ]
+);

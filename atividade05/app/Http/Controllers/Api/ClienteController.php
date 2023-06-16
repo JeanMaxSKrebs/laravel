@@ -54,7 +54,7 @@ class ClienteController extends Controller
         }
     }
 
-    public function destroy(Cliente $cliente)
+    public function remove(Cliente $cliente)
     {
         try {
             $cliente->delete();//mixed
@@ -68,5 +68,19 @@ class ClienteController extends Controller
             ];
             return response()->json($responseError, 404);
         }
+    }
+
+    public function reservas(Cliente $cliente)
+    {
+        return response()->json($cliente->load('reservas'));
+    }
+
+    public function salao($nomeSalao)
+    {
+        $clientes = Cliente::whereHas(
+                'cliente',
+                fn($q)=>$q->where('nome',$nomeSalao)
+            )->get();
+        return response()->json($clientes);
     }
 }

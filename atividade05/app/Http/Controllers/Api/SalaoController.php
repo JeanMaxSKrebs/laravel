@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cliente;
 use App\Models\Salao;
 use Illuminate\Http\Request;
 
@@ -30,11 +31,20 @@ class SalaoController extends Controller
             return response()->json($responseError, 500);
         }
     }
-
-    public function show(Salao $salao)
+    public function show($id)
     {
-        return response()->json($salao);
-    }
+        try {
+            $salao = Salao::findOrFail($id);
+            return response()->json($salao);
+        } catch(\Exception $error) {
+            $responseError = [
+                'message' => "O salão de ID: $id não foi encontrado!",
+                'exception' => $error->getMessage()
+            ];
+            return response()->json($responseError, 404);
+        }
+    }    
+    
 
     public function update(Request $request, Salao $salao)
     {
@@ -54,7 +64,7 @@ class SalaoController extends Controller
         }
     }
 
-    public function destroy(Salao $salao)
+    public function remove(Salao $salao)
     {
         try {
             $salao->delete();//mixed
@@ -78,8 +88,8 @@ class SalaoController extends Controller
     public function cliente($nomeCliente)
     {
         $saloes = Salao::whereHas(
-                'cliente',
-                fn($q)=>$q->where('nome',$nomeCliente)
+                'reservas',
+                fn($q)=>$q->where('cliente_id',$nomeCliente)
             )->get();
         return response()->json($saloes);
     }

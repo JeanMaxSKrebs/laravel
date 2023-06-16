@@ -21,9 +21,9 @@ class CreateSalaosTable extends Migration
             $table->string('cidade');
             $table->text('descricao');
             $table->integer('capacidade');
-            $table->string('logo');
-            $table->json('imagens');
-            $table->json('mensagens');
+            $table->string('logo')->nullable();;
+            $table->json('imagens')->nullable();;
+            $table->json('mensagens')->nullable();;
             $table->timestamps();
         });
     }

@@ -3,67 +3,67 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Festa;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
 
-class FestaController extends Controller
+class ReservaController extends Controller
 {
     public function index()
     {
-        return response() -> json(Festa::all());
+        return response() -> json(Reserva::all());
     }
 
     public function store(Request $request)
     {
         try {
-            $updatedFesta = $request->all();
-            $storedFesta = Festa::create($updatedFesta);
+            $updatedReserva = $request->all();
+            $storedReserva = Reserva::create($updatedReserva);
             return response()->json([
-                'Message'=>"Festa inserido com sucesso",
-                'Festa'=>$storedFesta
+                'Message'=>"Reserva inserido com sucesso",
+                'Reserva'=>$storedReserva
             ]);
         }catch(\Exception $error) {
             $responseError = [
-                'Message'=>"Erro ao inserir o Festa!",
+                'Message'=>"Erro ao inserir o Reserva!",
                 'Exception'=>$error->getMessage()
             ];
             return response()->json($responseError, 500);
         }
     }
 
-    public function show(Festa $festa)
+    public function show(Reserva $reserva)
     {
-        return response()->json($festa);
+        return response()->json($reserva);
     }
 
-    public function update(Request $request, Festa $festa)
+    public function update(Request $request, Reserva $reserva)
     {
         try {
-            $updatedFesta = $request->all();
-            $festa->update($updatedFesta);
+            $updatedReserva = $request->all();
+            $reserva->update($updatedReserva);
             return response()->json([
-                'Message'=>"Festa atualizado com sucesso",
-                'Festa'=>$festa
+                'Message'=>"Reserva atualizado com sucesso",
+                'Reserva'=>$reserva
             ]);
         } catch(\Exception $error) {
             $responseError = [
-                'Message'=>"Erro ao atualizar o Festa!",
+                'Message'=>"Erro ao atualizar o Reserva!",
                 'Exception'=>$error->getMessage()
             ];
             return response()->json($responseError, 500);
         }
     }
 
-    public function remove(Festa $festa)
+    public function remove(Reserva $reserva)
     {
         try {
-            $festa->delete();//mixed
+            $reserva->delete();//mixed
             return response()->json([
-                'Message'=>"Festa id:$festa->id removido!",
+                'Message'=>"Reserva id:$reserva->id removido!",
             ]);
         } catch(\Exception $error) {
             $responseError = [
-                'Message'=>"O festa de id: $festa->id não foi encontrado!",
+                'Message'=>"O reserva de id: $reserva->id não foi encontrado!",
                 'Exception'=>$error->getMessage()
             ];
             return response()->json($responseError, 404);
