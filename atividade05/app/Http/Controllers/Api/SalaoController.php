@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Cliente;
 use App\Models\Salao;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
 
 class SalaoController extends Controller
@@ -84,14 +85,35 @@ class SalaoController extends Controller
     {
         return response()->json($salao->load('reservas'));
     }
+    
+    //ver quais salões o cliente utilizou 
+    // public function cliente($nomeCliente)
+    // {
+    //     var_dump($nomeCliente);
+    //     $saloes = Salao::whereHas('reservas',
+    //             fn($q)=>$q->where('nome', $nomeCliente)
+    //         )->get();
+    //     var_dump(($saloes));
+    //     return response()->json($saloes);
+    // }
 
     public function cliente($nomeCliente)
-    {
-        $saloes = Salao::whereHas(
-                'reservas',
-                fn($q)=>$q->where('cliente_id',$nomeCliente)
-            )->get();
-        return response()->json($saloes);
+{
+    $saloes = Salao::whereHas('reservas', function ($query) use ($nomeCliente) {
+        $query->whereHas('cliente', function ($query) use ($nomeCliente) {
+            $query->where('nome', $nomeCliente);
+        });
+    })->get();
+    
+
+    if ($saloes->isEmpty()) {
+        return response()->json([
+            'message' => 'Nenhum salão encontrado para o cliente: ' . $nomeCliente
+        ], 404);
     }
+
+    return response()->json($saloes);
+}
+
     
 }

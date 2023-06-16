@@ -29,10 +29,10 @@ Route::post('/salao', [SalaoController::class,'store']);
 Route::put('/salao/{id}', [SalaoController::class,'update']);
 Route::delete('/salao/{id}', [SalaoController::class,'remove']);
 
-Route::apiResource('salaos',SalaoController::class)
-    ->parameters([
-        'salaos'=>'salao'
-    ]);
+// Route::apiResource('salaos',SalaoController::class)
+//     ->parameters([
+//         'salaos'=>'salao'
+//     ]);
 
 Route::get(
     'salaos/{salao}/reservas',
@@ -41,11 +41,9 @@ Route::get(
         'reservas'
     ]
 );
-Route::get('salaos/{nomeCliente}', [SalaoController::class, 'cliente']);
-
-
-Route::get('salaos/cliente/{nomeCliente}',[
-    ClienteController::class,
+//ver quais salões o cliente utilizou 
+Route::get('salaos/{nomeCliente}',[
+    SalaoController::class,
     'cliente'
 ]);
 

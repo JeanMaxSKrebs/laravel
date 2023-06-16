@@ -17,7 +17,7 @@ class Reserva extends Pivot
         "salao_id",
         "cliente_id",
     ];
-    public function clientes()
+    public function cliente()
     {
         return $this->belongsTo(Cliente::class);
     }
