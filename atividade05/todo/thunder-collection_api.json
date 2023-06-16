@@ -1,70 +1,70 @@
 {
     "client": "Thunder Client",
     "collectionName": "api",
-    "dateExported": "2023-06-16T14:54:43.873Z",
+    "dateExported": "2023-06-16T20:00:29.948Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "_id": "881dbb3d-76a8-432b-8560-c60dfae45f04",
             "name": "saloes",
             "containerId": "",
-            "created": "2023-06-16T13:30:36.177Z",
+            "created": "2023-06-16T16:41:37.089Z",
             "sortNum": 10000
         },
         {
-            "_id": "ecd0b2a0-bc9a-4584-895a-3d838674f9b3",
+            "_id": "4347d3c0-dee8-4041-8cc6-052608e95894",
             "name": "reservas",
             "containerId": "",
-            "created": "2023-06-16T13:30:45.386Z",
+            "created": "2023-06-16T16:41:37.090Z",
             "sortNum": 20000
         },
         {
-            "_id": "85005500-1f5a-4324-b30e-3f6488ac7f4c",
+            "_id": "a31c1100-5e49-4979-8f08-f52d24db5892",
             "name": "clientes",
             "containerId": "",
-            "created": "2023-06-16T13:30:49.819Z",
+            "created": "2023-06-16T16:41:37.091Z",
             "sortNum": 30000
         }
     ],
     "requests": [
         {
-            "_id": "34926472-08eb-48ef-8517-c88a142f31d1",
-            "colId": "058bfb4c-c634-4ca5-bb57-8a7d02c33a6e",
-            "containerId": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "_id": "9f2e25c6-5768-41d8-81a6-78b616874893",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "881dbb3d-76a8-432b-8560-c60dfae45f04",
             "name": "mostrar saloes",
             "url": "localhost:8081/api/salaos/",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2023-06-16T13:31:10.493Z",
-            "modified": "2023-06-16T13:31:29.102Z",
+            "created": "2023-06-16T16:41:37.090Z",
+            "modified": "2023-06-16T16:41:37.090Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "5824d6fe-584c-4a9c-8bff-1f52f10bc0a9",
-            "colId": "058bfb4c-c634-4ca5-bb57-8a7d02c33a6e",
-            "containerId": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "_id": "e0c4d510-3b44-4e4a-8494-941ed86bc57a",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "881dbb3d-76a8-432b-8560-c60dfae45f04",
             "name": "mostrar salao especifico",
-            "url": "localhost:8081/api/salao/3",
+            "url": "localhost:8081/api/salao/1",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2023-06-16T13:31:38.645Z",
-            "modified": "2023-06-16T14:01:59.827Z",
+            "created": "2023-06-16T16:41:37.091Z",
+            "modified": "2023-06-16T16:44:27.346Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "23faf63a-d0be-445f-91d8-36b8cf6abb59",
-            "colId": "058bfb4c-c634-4ca5-bb57-8a7d02c33a6e",
-            "containerId": "0f44d015-e4ef-4d3b-887c-0428e124bcf6",
+            "_id": "7069baa4-ec56-4fea-a691-d4481ad0671b",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "881dbb3d-76a8-432b-8560-c60dfae45f04",
             "name": "inserir salao",
             "url": "localhost:8081/api/salao/",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2023-06-16T14:02:41.170Z",
-            "modified": "2023-06-16T14:04:49.516Z",
+            "created": "2023-06-16T16:41:37.093Z",
+            "modified": "2023-06-16T16:41:37.093Z",
             "headers": [],
             "params": [],
             "body": {
@@ -107,6 +107,372 @@
                     }
                 ]
             },
+            "tests": []
+        },
+        {
+            "_id": "a4f95d47-9297-45ff-b1a7-97c2730c503d",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "881dbb3d-76a8-432b-8560-c60dfae45f04",
+            "name": "atualizar salao",
+            "url": "localhost:8081/api/salao/1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-06-16T16:46:31.610Z",
+            "modified": "2023-06-16T19:02:43.915Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "salao updated"
+                    },
+                    {
+                        "name": "cnpj",
+                        "value": "222222222"
+                    },
+                    {
+                        "name": "endereco",
+                        "value": "avenida pelotas"
+                    },
+                    {
+                        "name": "cidade",
+                        "value": "pelotas"
+                    },
+                    {
+                        "name": "descricao",
+                        "value": "salao de pelotas"
+                    },
+                    {
+                        "name": "capacidade",
+                        "value": "100"
+                    },
+                    {
+                        "name": "logo",
+                        "value": "",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "imagens",
+                        "value": "",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "aed7c998-4a0f-4150-a0a7-7f428a3e8f36",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "881dbb3d-76a8-432b-8560-c60dfae45f04",
+            "name": "deletar salao",
+            "url": "localhost:8081/api/salao/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-06-16T17:01:03.823Z",
+            "modified": "2023-06-16T17:02:23.237Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f5e3c741-2b6c-40c5-ae51-36c41a1e68d2",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "881dbb3d-76a8-432b-8560-c60dfae45f04",
+            "name": "ver reservas do salao",
+            "url": "localhost:8081/api/salaos/1/reservas",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-06-16T17:03:14.464Z",
+            "modified": "2023-06-16T17:03:59.721Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0e744ab9-eb75-4eff-bee5-b7c05dd937d4",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "881dbb3d-76a8-432b-8560-c60dfae45f04",
+            "name": " ver quais salões o cliente utilizou ",
+            "url": "localhost:8081/api/salaos/Cliente 1",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-06-16T17:31:18.561Z",
+            "modified": "2023-06-16T18:18:35.207Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8920406a-04d1-4e73-a4aa-d54ecc658625",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "4347d3c0-dee8-4041-8cc6-052608e95894",
+            "name": "mostrar reservas",
+            "url": "localhost:8081/api/reservas/",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-06-16T18:38:00.502Z",
+            "modified": "2023-06-16T18:38:09.139Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "37b6008f-fe21-4033-be53-8cfb3c366dab",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "4347d3c0-dee8-4041-8cc6-052608e95894",
+            "name": "mostrar reserva específica",
+            "url": "localhost:8081/api/reserva/3",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-06-16T18:38:52.711Z",
+            "modified": "2023-06-16T18:40:33.385Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d790a107-d744-41aa-a254-3f138715e43e",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "4347d3c0-dee8-4041-8cc6-052608e95894",
+            "name": "inserir reserva",
+            "url": "localhost:8081/api/reserva/",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2023-06-16T18:40:51.943Z",
+            "modified": "2023-06-16T18:42:53.057Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "data_hora",
+                        "value": "2025-10-17 18:42:33"
+                    },
+                    {
+                        "name": "valor",
+                        "value": "1000"
+                    },
+                    {
+                        "name": "salao_id",
+                        "value": "1"
+                    },
+                    {
+                        "name": "cliente_id",
+                        "value": "1"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "d3012e59-3d3e-4599-bf12-447af34cfbb0",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "4347d3c0-dee8-4041-8cc6-052608e95894",
+            "name": "atualizar reserva",
+            "url": "localhost:8081/api/reserva/1",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2023-06-16T18:43:52.793Z",
+            "modified": "2023-06-16T19:13:38.665Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": " data_hora",
+                        "value": "2023-12-01 14:49:43"
+                    },
+                    {
+                        "name": "valor",
+                        "value": "123"
+                    },
+                    {
+                        "name": "salao_id",
+                        "value": "1"
+                    },
+                    {
+                        "name": "cliente_id",
+                        "value": "1"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "a9d8c6ce-e725-4958-8aaf-c4b52f69ebfd",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "4347d3c0-dee8-4041-8cc6-052608e95894",
+            "name": "deletar reserva",
+            "url": "localhost:8081/api/reserva/2",
+            "method": "DELETE",
+            "sortNum": 120000,
+            "created": "2023-06-16T19:16:20.316Z",
+            "modified": "2023-06-16T19:16:53.095Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ce03bfcf-91c4-4f7d-83e6-366b4c9cf97d",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "a31c1100-5e49-4979-8f08-f52d24db5892",
+            "name": "mostrar clientes",
+            "url": "localhost:8081/api/clientes/",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2023-06-16T19:24:13.259Z",
+            "modified": "2023-06-16T19:26:28.865Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8ca33903-1f43-448c-b8c5-fa18e60c629c",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "a31c1100-5e49-4979-8f08-f52d24db5892",
+            "name": "mostrar cliente especifico",
+            "url": "localhost:8081/api/cliente/2",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2023-06-16T19:27:18.286Z",
+            "modified": "2023-06-16T19:28:08.838Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "99b507f4-9d99-405d-9f2f-67eb61f2e39d",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "a31c1100-5e49-4979-8f08-f52d24db5892",
+            "name": "inserir cliente",
+            "url": "localhost:8081/api/cliente/",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2023-06-16T19:28:19.312Z",
+            "modified": "2023-06-16T19:34:19.075Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "joseas"
+                    },
+                    {
+                        "name": "cpf",
+                        "value": "123123412"
+                    },
+                    {
+                        "name": "idade",
+                        "value": "23"
+                    },
+                    {
+                        "name": "email",
+                        "value": "joseas@gmail.com"
+                    },
+                    {
+                        "name": "telefone",
+                        "value": "51 985313422"
+                    },
+                    {
+                        "name": "mensagens",
+                        "value": "[\\\"lindo\\\",\\\"bonito\\\"]"
+                    },
+                    {
+                        "name": " foto_perfil",
+                        "value": "https://exemplo.com/foto1.jpg"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "2988c1a1-64e2-4bf8-9b44-3f2d36f161e5",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "a31c1100-5e49-4979-8f08-f52d24db5892",
+            "name": "atualizar cliente",
+            "url": "localhost:8081/api/cliente/21",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2023-06-16T19:34:36.406Z",
+            "modified": "2023-06-16T19:36:15.621Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "nome",
+                        "value": "joseane"
+                    },
+                    {
+                        "name": "cpf",
+                        "value": "123123"
+                    },
+                    {
+                        "name": "idade",
+                        "value": "18"
+                    },
+                    {
+                        "name": "email",
+                        "value": "",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "telefone",
+                        "value": "",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "mensagens",
+                        "value": "",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": " foto_perfil",
+                        "value": "",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "13c4662a-ba90-4cf7-846b-aaaaceb7ae4c",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "a31c1100-5e49-4979-8f08-f52d24db5892",
+            "name": "deletar cliente",
+            "url": "localhost:8081/api/cliente/1",
+            "method": "DELETE",
+            "sortNum": 170000,
+            "created": "2023-06-16T19:37:56.780Z",
+            "modified": "2023-06-16T19:38:40.719Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f2fd6a77-c618-48d1-8183-a36c3a14ec46",
+            "colId": "123820f8-7fc7-4913-b200-270b957877db",
+            "containerId": "a31c1100-5e49-4979-8f08-f52d24db5892",
+            "name": "ver reservas do cliente",
+            "url": "localhost:8081/api/clientes/5/reservas",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2023-06-16T19:42:42.712Z",
+            "modified": "2023-06-16T19:44:11.936Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]
