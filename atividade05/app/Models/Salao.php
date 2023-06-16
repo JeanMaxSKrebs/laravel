@@ -23,11 +23,6 @@ class Salao extends Model
         'imagens',
         'mensagens'
     ];
-    
-    // public function reservas()
-    // {
-    //     return $this->hasMany(Reserva::class);
-    // }
 
     public function cliente(): BelongsToMany
     {

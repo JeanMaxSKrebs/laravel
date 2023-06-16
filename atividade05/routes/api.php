@@ -29,6 +29,7 @@ Route::post('/salao', [SalaoController::class,'store']);
 Route::put('/salao/{id}', [SalaoController::class,'update']);
 Route::delete('/salao/{id}', [SalaoController::class,'remove']);
 
+//ver quais reservas o salão especificado tem 
 Route::get(
     'salaos/{salao}/reservas',
     [
@@ -60,10 +61,12 @@ Route::post('/cliente', [ClienteController::class,'store']);
 Route::put('/cliente/{id}', [ClienteController::class,'update']);
 Route::delete('/cliente/{id}', [ClienteController::class,'remove']);
 
+
+//ver quais reservas o cliente especificado tem 
 Route::get(
     'clientes/{salao}/reservas',
     [
-        SalaoController::class,
+        ClienteController::class,
         'reservas'
     ]
 );

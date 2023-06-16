@@ -83,9 +83,21 @@ class ClienteController extends Controller
             return response()->json($responseError, 404);
         }
     }
-    public function clientes(Cliente $cliente)
+    
+    public function reservas($id)
     {
-        return response()->json($cliente->load('clientes'));
+        try {
+            $cliente = Cliente::findOrFail($id);
+            $reservas = $cliente->reservas;
+
+            return response()->json($reservas);
+        } catch (\Exception $error) {
+            $responseError = [
+                'Message' => "O cliente de ID: $id não foi encontrado",
+                'Exception' => $error->getMessage()
+            ];
+            return response()->json($responseError, 404);
+        }
     }
 
     public function salao($nomeSalao)
