@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\ClienteController;
 use App\Http\Controllers\Api\ReservaController;
 use App\Http\Controllers\Api\SalaoController;
 use App\Http\Controllers\Api\FestaController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -70,3 +71,6 @@ Route::get(
         'reservas'
     ]
 );
+
+
+Route::apiResource('users', UserController::class);
