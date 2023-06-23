@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\ReservaController;
 use App\Http\Controllers\Api\SalaoController;
 use App\Http\Controllers\Api\FestaController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\Auth\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -74,3 +75,5 @@ Route::get(
 
 
 Route::apiResource('users', UserController::class);
+
+Route::post('/login', [LoginController::class,'login'])->name('login');
