@@ -17,8 +17,16 @@ class LoginController extends Controller
             if(!$user || !Hash::check($request->password, $user->password)) {
                 throw new \Exception('Falha na autenticação!');
             }
-
-            $abilitie = $user->is_admin ? ['is-admin'] : [];
+            if ($user->is_admin) {
+                $abilitie = ['is-admin'];
+            } else if($user->is_manager){
+                $abilitie = ['is-manager'];
+            } else {
+                $abilitie = ['is-client'];
+            }
+            
+            // $token = $user->createToken($request->email, $abilitie)->plainTextToken;
+            // $abilitie = $user->is_admin ? ['is-admin'] : [];
             $token = $user->createToken($request->email, $abilitie)->plainTextToken;
             return response()->json(['token'=>$token]);
         } catch(\Exception $error) {
